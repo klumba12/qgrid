@@ -29,6 +29,7 @@ in progress
 
 ## features in progress
 * [expressive templates](https://github.com/klumba12/qgrid/blob/master/docs/template.md) `Dmitry`
+* [model](https://github.com/klumba12/qgrid/blob/master/docs/model.md) `Dmitry`
 * [column generation from data](https://github.com/klumba12/qgrid/blob/master/docs/column.generation.md) `Maxim`
 * [virtualization of vertical & horizontal scrolls (handle large data sets)](https://github.com/klumba12/qgrid/blob/master/docs/scroll.virtual.md) `Valentin`
 * [sticky header](https://github.com/klumba12/qgrid/blob/master/docs/header.sticky.md) `Maxim`
