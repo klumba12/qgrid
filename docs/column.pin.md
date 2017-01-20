@@ -14,11 +14,11 @@
 controller.$inject = ['$scope', 'qgrid'];
 function controller($scope, qgrid){
   $scope.columns = [
-          {key: 'firstName', label: 'First Name', type: 'text', isVisible: true, isDefault: true, isPinned: true},
-          {key: 'lastName', label: 'Last Name', type: 'text', isVisible: true, isDefault: true, isPinned: true},
-          {key: 'birthDate', label: 'Date of Birth', type: 'date', isVisible: true, isDefault: true, isPinned: false},
-          {key: 'location', label: 'Location', type: 'date', isVisible: true, isDefault: true, isPinned: false},
-          {key: 'zipCode', label: 'Zip', type: 'number', isVisible: false, isDefault: false, isPinned: false}
+          {key: 'firstName', label: 'First Name', type: 'text', isVisible: true, isDefault: true, isPinned: 'left'},
+          {key: 'lastName', label: 'Last Name', type: 'text', isVisible: true, isDefault: true, isPinned: 'left'},
+          {key: 'birthDate', label: 'Date of Birth', type: 'date', isVisible: true, isDefault: true},
+          {key: 'location', label: 'Location', type: 'date', isVisible: true, isDefault: true, isPinned: 'right'},
+          {key: 'zipCode', label: 'Zip', type: 'number', isVisible: false, isDefault: false, isPinned: 'right'}
       ];
    
 }
