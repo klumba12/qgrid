@@ -3,9 +3,9 @@
 ```html
 <q-grid rows="$ctrl.rows">
 	<q-grid:columns>
-		<q-grid:column isPinned="true" key="name.last" title="Last Name" value="$ctrl.getLastName($row)"></q-grid:column>
+		<q-grid:column pin="left" key="name.last" title="Last Name" value="$ctrl.getLastName($row)"></q-grid:column>
 		<q-grid:column key="birthday" title="Birthday"></q-grid:column>
-		<q-grid:column key="gender" title="Gender"></q-grid:column>
+		<q-grid:column pin="right" key="gender" title="Gender"></q-grid:column>
 	</q-grid:columns>
 </q-grid>
 ```
