@@ -243,6 +243,10 @@
 			{
 				"title": "Dynamic Columns",
 				"path": "dynamic-columns"
+			},
+			{
+				"title": "Column Pin",
+				"path": "column-pin"
 			}
 		]
 	},
