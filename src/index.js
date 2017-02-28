@@ -11,6 +11,7 @@ import RowModel from 'core/row/row.model';
 import SelectionModel from 'core/selection/selection.model';
 import FootModel from 'core/foot/foot.model';
 import SortModel from './core/sort/sort.model';
+import PinModel from './core/pin/pin.model';
 import GroupModel from 'core/group/group.model';
 import PivotModel from 'core/pivot/pivot.model';
 import PluginModel from 'core/plugin/plugin.model';
@@ -39,6 +40,7 @@ Model.register('grid', GridModel)
 	.register('layout', LayoutModel)
 	.register('row', RowModel)
 	.register('columnList', ColumnListModel)
+	.register('pin', PinModel)
 	.register('sort', SortModel)
 	.register('group', GroupModel)
 	.register('node', NodeModel)

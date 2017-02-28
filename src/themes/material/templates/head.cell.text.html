@@ -16,3 +16,10 @@
 							 title="$cell.column.title"
 							 ng-class="{'q-grid-active': $view.filter.has($cell.column.key)}">
 </q-grid:column-filter>
+<div class="q-grid-pin"
+     ng-class="{'q-grid-active': $view.sort.order($cell.column.key) >= 0}"
+     ng-switch="$view.sort.direction($cell.column.key)"
+     ng-click="">
+	<md-icon class="q-grid-asc" ng-switch-when="asc">turned_in</md-icon>
+	<md-icon ng-switch-default>turned_in_not</md-icon>
+</div>
