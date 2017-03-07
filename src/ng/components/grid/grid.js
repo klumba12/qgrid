@@ -117,8 +117,6 @@ export default {
 		pivotBy: '<',
 		sortBy: '<',
 		sortMode: '@',
-		pinBy: '<',
-		pinMode: '@',
 		editMode: '@'
 	}
 };
