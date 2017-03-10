@@ -3,7 +3,7 @@ import PipeUnit from 'core/pipe/units/pipe.column.unit';
 
 export class Grid extends RootComponent {
 	constructor($element, $transclude, $document, serviceFactory) {
-		super('data', 'selection', 'sort', 'group', 'pivot', 'edit');
+		super('data', 'selection', 'sort', 'pin', 'group', 'pivot', 'edit');
 
 		this.$element = $element;
 		this.$transclude = $transclude;
