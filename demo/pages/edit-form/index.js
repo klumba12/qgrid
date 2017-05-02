@@ -76,7 +76,7 @@ export default function Controller($http, qgrid) {
 			type: 'reference',
 			value: (item, value) => isUndef(value) ? item.teammates || [] : item.teammates = value,
 			label: (item) => (item.teammates || [])
-				.map(teammate => `${ctrl.rows[teammate].name.last} ${ctrl.rows[teammate].name.first}`)
+				.map(teammate => `${ctrl.gridModel.data().rows[teammate].name.last} ${ctrl.gridModel.data()[teammate].name.first}`)
 				.join(', '),
 			editorOptions: {
 				modelFactory: () => {
@@ -85,7 +85,7 @@ export default function Controller($http, qgrid) {
 						.selection({
 							mode: 'multiple',
 							unit: 'row',
-							key: {row: row => ctrl.rows.findIndex(r => r.name.last === row.name.last)}
+							key: {row: row => ctrl.gridModel.data().findIndex(r => r.name.last === row.name.last)}
 						})
 						// .scroll({
 						// 	mode: 'virtual'
