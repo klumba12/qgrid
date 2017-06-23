@@ -20,7 +20,7 @@ export declare class BodyView extends View {
 
 	columns(row: any, pin: string): ColumnModel[];
 
-	rowspan(): number;
+	rowspan(row: any, column: ColumnModel): number;
 
 	colspan(column: ColumnModel, row: any): number;
 
