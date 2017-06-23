@@ -3,13 +3,10 @@ import {ColumnModel} from "../column-type/column.model";
 import {Model} from "../infrastructure/model";
 import {getFactory as labelFactory} from '../services/label';
 import {Table} from "../dom/table";
+import {IGetResult} from "../services/value";
 
 export declare interface IGetValueFactory{
-	(): any;
-}
-
-export declare interface IValueFactory{
-	(column: ColumnModel, labelFactory: labelFactory): any;
+	(column: ColumnModel): IGetResult;
 }
 
 export declare class BodyView extends View {
@@ -28,7 +25,7 @@ export declare class BodyView extends View {
 
 	label(row: any, column: ColumnModel, value: any): string;
 
-	valueFactory(column: ColumnModel, getValueFactory: IGetValueFactory): any;
+	valueFactory(column: ColumnModel, getValueFactory: IGetValueFactory): IGetResult;
 
-	labelFactory(column: ColumnModel): IValueFactory;
+	labelFactory(column: ColumnModel): IGetResult;
 }

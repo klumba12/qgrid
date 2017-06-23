@@ -36,9 +36,9 @@ export declare class View extends Unit {
 
 	removeLayer(name: string): boolean;
 
-	scrollLeft(value?: any): any;
+	scrollLeft(value?: any): number;
 
-	scrollTop(value?: any): any;
+	scrollTop(value?: any): number;
 
 	canScrollTo(element: Element, direction: string): boolean;
 

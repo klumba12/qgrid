@@ -10,14 +10,14 @@ export declare interface IContextFactory{
 	unit: string
 }
 
-export class EditRowView {
-	constructor(public model: Model, public table: Table, public commandManager: CommandManager);
+export declare class EditRowView {
+	constructor(public model: Model, public table: Table, public commandManager: any);
 
 	editor: RowEditor;
 	shortcut: Shortcut;
 	commands: Map;
 	shortcutOff: boolean;
-   enter: string;
+	enter: string;
 	commit: string;
 	cancel: string;
 	reset: string;

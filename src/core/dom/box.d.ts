@@ -5,12 +5,15 @@ import {FakeElement} from './fake/element';
 import {ColumnModel} from "../column-type/column.model";
 import {Model} from "../infrastructure/model";
 
+export declare interface IIsDataRow{
+	(row: any): boolean;
+}
 
 export declare interface IContext{
 	mapper: IMapper;
 	layer: any;
 	model: any;
-	isDataRow: any;
+	isDataRow: IIsDataRow;
 }
 
 export declare interface IMapper{
@@ -33,7 +36,7 @@ export declare interface IRowFactory{
 }
 
 export declare interface IColumnFactory{
-	(undex: number): any;
+	(index: number): ColumnModel;
 }
 
 export declare interface ICellCore{

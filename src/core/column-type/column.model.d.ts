@@ -1,18 +1,11 @@
 import {Model} from "../infrastructure/model";
 
-export declare interface ILabel{
-	(): any;
-}
-
-export declare  interface IValue{
-	(): any;
-}
-
 export declare interface IEditorOptions {
 	trigger: string;
 	modelFactory: () => Model;
-	label: () => any;
+	label: any;
 	fetch: any;
+	value: any;
 }
 
 export declare class ColumnModel {
@@ -22,7 +15,7 @@ export declare class ColumnModel {
 	type: string;
 	key: string;
 	title: string;
-	value: IValue;
+	value: any;
 	path: string;
 	pin: string;
 	origin: string;
@@ -42,7 +35,7 @@ export declare class ColumnModel {
 	canFocus: boolean;
    isVisible: boolean;
 	index: number;
-   label: ILabel;
+   label: any;
 
 	toString(): string;
 }

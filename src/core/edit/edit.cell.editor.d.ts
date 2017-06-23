@@ -3,7 +3,7 @@ import {INoopResult} from '../utility/utility';
 import {ICell} from "../cell/cell";
 import {ColumnModel, IEditorOptions} from "../column-type/column.model";
 
-declare class CellEditorCore {
+export declare class CellEditorCore {
 	constructor();
 
 	value: any;
@@ -27,7 +27,7 @@ export declare class CellEditor extends CellEditorCore {
 
 	get column(): ColumnModel;
 
-	getLabel(item: object): any;
+	getLabel(item: any): any;
 
 	fetchFactory(): Fetch;
 

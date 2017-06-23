@@ -3,7 +3,7 @@ import {IGetResult} from '../services/value';
 import {ColumnModel} from "../column-type/column.model";
 
 
-declare class RowEditorCore {
+export declare class RowEditorCore {
 	constructor();
 
 	editors: CellEditor[];
@@ -13,10 +13,10 @@ declare class RowEditorCore {
 	reset(): void
 }
 
-declare class CellView {
+export declare class CellView {
 	constructor(public row: any, public column: ColumnModel);
 
-	get value(): IGetResult;
+	get value(): any;
 
 	set value(value: any);
 
@@ -25,7 +25,7 @@ declare class CellView {
 	set label(value: any);
 }
 
-declare const empty: RowEditorCore;
+export declare const empty: RowEditorCore;
 
 export declare class RowEditor extends RowEditorCore {
 	constructor(public row: any, public columns: ColumnModel[]);
