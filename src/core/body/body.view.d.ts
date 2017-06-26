@@ -10,9 +10,8 @@ export declare interface IGetValueFactory{
 }
 
 export declare class BodyView extends View {
-	constructor(public model: Model, public table: Table);
+	constructor(model: Model, public table: Table);
 
-	table: Table;
 	rows: any[];
 
 	columns(row: any, pin: string): ColumnModel[];

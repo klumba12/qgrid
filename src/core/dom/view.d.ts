@@ -1,18 +1,16 @@
 import {Unit} from './unit';
 import {IBoundingObj} from "./fake/element";
+import {IContext} from "../infrastructure/command";
+import {IContext} from "./box";
 
 
 export declare interface IMarkup{
-	document: object;
-	view: object;
-	head: object;
-	body: object;
-	table: object;
-	foot: object;
-}
-
-export declare interface IContext{
-	layer(name: string): any;
+	document: HTMLElement;
+	view: HTMLElement;
+	head: HTMLElement;
+	body: HTMLElement;
+	table: HTMLElement;
+	foot: HTMLElement;
 }
 
 export declare interface IFunc{
@@ -36,9 +34,9 @@ export declare class View extends Unit {
 
 	removeLayer(name: string): boolean;
 
-	scrollLeft(value?: any): number;
+	scrollLeft(value: number): number;
 
-	scrollTop(value?: any): number;
+	scrollTop(value: number): number;
 
 	canScrollTo(element: Element, direction: string): boolean;
 

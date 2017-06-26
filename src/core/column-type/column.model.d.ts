@@ -8,6 +8,14 @@ export declare interface IEditorOptions {
 	value: any;
 }
 
+export declare interface IValue{
+	(row: any, value?: any): any;
+}
+
+export declare interface ILabel{
+	(row: any, value?: any): any;
+}
+
 export declare class ColumnModel {
 
 	constructor(type: string);

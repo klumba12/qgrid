@@ -1,17 +1,14 @@
-import {Box} from '../box';
+import {Box, IContext} from '../box';
 import {CellBox} from './cell.box';
 import {RowBox} from './row.box';
 import {ColumnBox} from './column.box';
 import {Cell} from "../cell";
 import {Row} from "../row";
 import {Column} from "../column";
+import {Model} from "../../infrastructure/model";
 
 export declare class VirtualBox extends Box {
-	constructor();
-
-	cellBox: CellBox;
-	rowBox: RowBox;
-	columnBox: ColumnBox;
+	constructor(context: IContext, model: Model);
 
 	addCellClass(cell: Cell, name: string, force: boolean): void;
 

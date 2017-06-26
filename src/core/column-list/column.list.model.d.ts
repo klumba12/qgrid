@@ -1,6 +1,6 @@
 import {ColumnModel} from "../column-type/column.model";
 
-export declare enum Generation{
+export declare enum GenerationMode{
 	deep,
 	shallow
 }
@@ -8,7 +8,7 @@ export declare enum Generation{
 export declare class ColumnListModel {
 	constructor();
 
-	generation: Generation; // deep | shallow
+	generation: GenerationMode; // deep | shallow
 	index: string[];
 	columns: ColumnModel[];
 	reference: object;

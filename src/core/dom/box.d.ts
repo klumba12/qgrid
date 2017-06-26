@@ -12,7 +12,7 @@ export declare interface IIsDataRow{
 export declare interface IContext{
 	mapper: IMapper;
 	layer: any;
-	model: any;
+	model: (elem: Element) => any;
 	isDataRow: IIsDataRow;
 }
 
