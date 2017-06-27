@@ -2,6 +2,7 @@ import {FakeElement} from './fake';
 import {escapeClass} from '../services/css';
 
 const fakeElement = new FakeElement();
+
 export class Unit {
 	constructor() {
 	}

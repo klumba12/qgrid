@@ -22,7 +22,7 @@ export declare class ColumnModel {
 
 	key: string;
 	title: string;
-	value: IValue;
+	value: any;
 	path: string;
 	pin: string;
 	origin: string;
@@ -42,7 +42,7 @@ export declare class ColumnModel {
 	canFocus: boolean;
    isVisible: boolean;
 	index: number;
-   label: ILabel;
+   label: any;
 
 	toString(): string;
 }
