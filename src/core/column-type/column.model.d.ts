@@ -18,9 +18,8 @@ export declare interface ILabel{
 
 export declare class ColumnModel {
 
-	constructor(type: string);
+	constructor(public type: string);
 
-	type: string;
 	key: string;
 	title: string;
 	value: any;
