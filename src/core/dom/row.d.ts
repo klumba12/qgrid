@@ -19,7 +19,7 @@ export declare interface ICellCore{
 }
 
 export declare class Row extends Element {
-	constructor(public box: IBox, public index: number);
+	constructor(public box: IBox, public index: number, element: HTMLElement);
 
 	get model(): RowModel;
 
