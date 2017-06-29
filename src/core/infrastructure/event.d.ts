@@ -1,14 +1,20 @@
+import {IFunc} from "./command.manager";
+
+export declare interface IEventShape{
+	(): void;
+}
+
 export declare interface IReturn{
 	(): void;
 }
 
 export declare class Event {
 
-	constructor(e: () => void);
+	constructor(e: IEventShape);
 
-	on(f: () => any): IReturn;
+	on(f: IFunc): IReturn;
 
-	watch(f: () => any): void;
+	watch(f: IFunc): void;
 
-	emit(e: () => void): void;
+	emit(e: IEventShape): void;
 }

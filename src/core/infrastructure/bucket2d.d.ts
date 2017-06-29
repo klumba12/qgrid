@@ -1,6 +1,5 @@
 export declare const identityIndexMapper: object;
 
-
 export declare class BucketEntryCore {
 
 	constructor();
@@ -43,7 +42,6 @@ export declare class Bucket2d {
 	items: any[];
 	indexMapper: object;
 	empty: object;
-
 
 	add(item: object, row: object, column: object): void;
 
