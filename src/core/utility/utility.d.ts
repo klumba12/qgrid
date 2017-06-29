@@ -32,3 +32,4 @@ export declare const identity: IIdentityResult;
 export declare const toCamelCase: IToCamelCaseResult;
 
 export declare const isEmail: IIsEmailResult;
+
