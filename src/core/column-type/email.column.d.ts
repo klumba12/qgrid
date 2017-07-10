@@ -1,6 +1,6 @@
 import {ColumnView} from './column.model.view';
 import {DataColumnModel} from './data.column.model';
-import {Model} from "../infrastructure/model";
+import {Model} from '../infrastructure/model';
 
 export declare class EmailColumnModel extends DataColumnModel {
 	constructor();
@@ -8,6 +8,5 @@ export declare class EmailColumnModel extends DataColumnModel {
 
 export declare class EmailColumn extends ColumnView {
 	constructor(model: Model);
-
 	static model(model: Model): Model;
 }

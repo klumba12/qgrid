@@ -1,6 +1,6 @@
 import {ColumnView} from './column.model.view';
 import {ColumnModel} from './column.model';
-import {Model} from "../infrastructure/model";
+import {Model} from '../infrastructure/model';
 
 declare class RowExpandColumnModel extends ColumnModel {
 	constructor();
@@ -8,6 +8,5 @@ declare class RowExpandColumnModel extends ColumnModel {
 
 export declare class RowExpandColumn extends ColumnView {
 	constructor(model: Model);
-
 	static model(model: Model): Model;
 }

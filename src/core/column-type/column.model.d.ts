@@ -1,6 +1,7 @@
-import {Model} from "../infrastructure/model";
+import {Model} from '../infrastructure/model';
+import {IPinObj} from '../visibility/visibility.model';
 
-export declare interface IEditorOptions {
+export interface IEditorOptions {
 	trigger: string;
 	modelFactory: () => Model;
 	label: any;
@@ -8,41 +9,39 @@ export declare interface IEditorOptions {
 	value: any;
 }
 
-export declare interface IValue{
+export interface IValue{
 	(row: any, value?: any): any;
 }
 
-export declare interface ILabel{
+export interface ILabel{
 	(row: any, value?: any): any;
 }
 
 export declare class ColumnModel {
-
-	constructor(public type: string);
-
+	constructor(type: string);
+	type: string;
 	key: string;
 	title: string;
 	value: IValue;
 	path: string;
-	pin: string;
+	pin: IPinObj;
 	origin: string;
 	source: string;
 	class: string;
 	editor: string;
 	editorOptions: IEditorOptions;
-   width: number;
+	width: number;
 	minWidth: number;
 	maxWidth: number;
-   canEdit: boolean;
+	canEdit: boolean;
 	canResize: boolean;
 	canSort: boolean;
 	canMove: boolean;
 	canFilter: boolean;
 	canHighlight: boolean;
 	canFocus: boolean;
-   isVisible: boolean;
+	isVisible: boolean;
 	index: number;
-   label: ILabel;
-
+	label: ILabel;
 	toString(): string;
 }
