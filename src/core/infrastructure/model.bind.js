@@ -10,13 +10,12 @@ export class ModelBinder {
 	bind(model, names, run = true) {
 		this.off();
 		const source = this.source;
-
+   
 		if (model) {
 			const commits = [];
 			for (let name of names) {
 				const doBind = e => {
 					Log.info('model.bind', `to ctrl "${name}[${Object.keys(e.changes).join(', ')}]"`);
-
 					for (let key of Object.keys(e.changes)) {
 						const sourceKey = toCamelCase(name, key);
 						if (source.hasOwnProperty(sourceKey)) {
