@@ -1,38 +1,33 @@
 import { Event } from './event';
 
 describe('Event', () => {
+
 	let event;
-	let count;
+	let foo = chai.spy(() => {});
 
 	beforeEach(() => {
 		event = new Event();
-		count = 0;
 	});
-
-	let foo = function (value, func) {
-		func();
-		++count;
-	};
 
 	describe('on/emit', () => {
 
-		it('should return 1 in both cases', () => {
+		it('should be called', () => {
 			event.on(foo);
 			event.emit();
-			expect(count).to.equal(1);
-			event.emit();
-			expect(count).to.equal(1);
+
+			expect(foo).to.have.been.called();
 		});
 
 	});
 
 	describe('watch', () => {
 
-		it('should return 0 if handler was removed', () => {
+		it('should not be called if handler was removed', () => {
 			let result = event.watch(foo);
 			result();
 			event.emit();
-			expect(count).to.equal(0);
+
+			expect(foo).to.not.have.been.called.exactly(0);
 		});
 
 	});
