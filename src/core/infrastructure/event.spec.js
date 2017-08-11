@@ -2,15 +2,16 @@ import { Event } from './event';
 
 describe('Event', () => {
 	let event;
+	let count;
 
 	beforeEach(() => {
 		event = new Event();
-		window.testValue = 0;
+		count = 0;
 	});
 
 	let foo = function (value, func) {
 		func();
-		++window.testValue;
+		++count;
 	};
 
 	describe('on/emit', () => {
@@ -18,9 +19,9 @@ describe('Event', () => {
 		it('should return 1 in both cases', () => {
 			event.on(foo);
 			event.emit();
-			expect(window.testValue).to.equal(1);
+			expect(count).to.equal(1);
 			event.emit();
-			expect(window.testValue).to.equal(1);
+			expect(count).to.equal(1);
 		});
 
 	});
@@ -31,7 +32,7 @@ describe('Event', () => {
 			let result = event.watch(foo);
 			result();
 			event.emit();
-			expect(window.testValue).to.equal(0);
+			expect(count).to.equal(0);
 		});
 
 	});
