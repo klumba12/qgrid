@@ -34,18 +34,4 @@ describe('Unit', () => {
 			expect(unit.width()).to.equal(0);
 		});
 	});
-	describe('addClass', () => {
-		let spy = chai.spy.on(unit, 'addClassCore');
-		unit.addClass('someClass');
-		it('should be called', () => {
-			expect(spy).to.have.been.called();
-		});
-	});
-	describe('removeClass', () => {
-		let spy = chai.spy.on(unit, 'removeClassCore');
-		unit.removeClass('someClass');
-		it('should be called', () => {
-			expect(spy).to.have.been.called();
-		});
-	});
 });
