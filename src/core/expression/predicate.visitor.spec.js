@@ -24,7 +24,7 @@ describe('PredicateVisitor', () => {
 				}
 			};
 			let predicateVisitor = new PredicateVisitor(valueFactory);
-			let foo = predicateVisitor.visitGroup(group);
+			let foo = predicateVisitor.visit(group);
 			let res = foo(123);
 			expect(res).to.equal(true);
 		});
@@ -47,9 +47,10 @@ describe('PredicateVisitor', () => {
 				}
 			};
 			let predicateVisitor = new PredicateVisitor(valueFactory);
-			let foo = predicateVisitor.visitGroup(group);
+			let foo = predicateVisitor.visit(group);
 			let res = foo(123);
 			expect(res).to.equal(true);
+			expect(foo('Some string')).to.equal(true)
 		});
 	});
 
@@ -109,13 +110,13 @@ describe('PredicateVisitor', () => {
 		it('check for equality with op = "in"', () => {
 			let condition = {
 				kind: 'condition',
-				op: 'between',
+				op: 'in',
 				right: [10, 20],
 				left: 'value'
 			};
 			let predicateVisitor = new PredicateVisitor(valueFactory);
 			let foo = predicateVisitor.visit(condition);
-			let res = foo(15);
+			let res = foo(10);
 			expect(res).to.equal(true);
 		});
 
@@ -225,6 +226,6 @@ describe('PredicateVisitor', () => {
 			expect(res).to.equal(true);
 		});
 	});
-	
+
 });
 
