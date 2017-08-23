@@ -74,7 +74,6 @@ describe('PredicateVisitor', () => {
 				right: 123,
 				left: 'value'
 			};
-
 			let predicateVisitor = new PredicateVisitor(valueFactory);
 			let foo = predicateVisitor.visit(condition);
 			let res = foo(999);
