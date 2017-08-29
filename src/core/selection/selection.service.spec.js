@@ -1,7 +1,4 @@
 import {SelectionService} from './selection.service';
-import {Model} from '../infrastructure/model';
-import {DataModel} from '../data/data.model';
-import {SelectionModel} from '../selection/selection.model';
 import {modelFactory} from '../test/model.factory';
 
 let model;
