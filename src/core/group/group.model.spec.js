@@ -3,7 +3,7 @@ import {Command} from '../command';
 import {GroupModel} from './group.model';
 
 describe('Group Model', () => {
-	it('testing constructor', () => {
+	it('constructor testing', () => {
 		let groupModel = new GroupModel();
 		expect(groupModel.resource).to.be.an.instanceOf(Resource);
 		expect(JSON.stringify(groupModel.by)).to.equal('[]');
