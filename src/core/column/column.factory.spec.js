@@ -9,7 +9,6 @@ describe('columnFactory', () => {
 
 	it('should create a new instance of PasswordColumn', () => {
 		let createColumn = columnFactory(model);
-
 		let result = createColumn('password');
 		expect(result).to.be.an.instanceOf(PasswordColumn);
 	});
