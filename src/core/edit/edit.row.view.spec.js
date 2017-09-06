@@ -29,7 +29,6 @@ describe('EditRowView', function () {
 			enter.execute('row');
 			let context = editRowView.contextFactory('row');
 			expect(context['row']).to.equals('row');
-			expect(context['current']).to.equals(undefined);  // !!!!!!!!!!!!!!
 			expect(context['unit']).to.equals('row');
 		});
 	});
