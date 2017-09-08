@@ -45,7 +45,7 @@ describe('SelectorFactory', () => {
 		};
 	};
 	describe('create', () => {
-		it('', () => {
+		it('filtering selectors', () => {
 			const selectorMediator = selectorFactory.create();
 			const build = selectorMediator.buildSelectors;
 			const invokes = build({row: 2, column: 2});
