@@ -74,14 +74,38 @@ describe('CellEditor', function () {
 	describe('get column', function () {
 		it('should return a column', () => {
 			let column = cellEditor.column;
-			expect(column).to.be.an.instanceOf(ColumnModel);
+			expect(column.pin).to.equal(null);
+			expect(column.path).to.equal(null);
+			expect(column.title).to.equal('testTitle');
+			expect(column.value).to.equal(null);
+			expect(column.width).to.equal(null);
+			expect(column.origin).to.equal('specific');
+			expect(column.type).to.equal('text');
+			expect(column.minWidth).to.equal(20);
+			expect(column.maxWidth).to.equal(null);
+			expect(column.label).to.equal(null);
+			expect(column.key).to.equal(null);
+			expect(column.isVisible).to.equal(true);
+			expect(column.index).to.equal(-1);
+			expect(JSON.stringify(column.editorOptions)).to.equal(JSON.stringify(options));
+			expect(column.editor).to.equal(null);
+			expect(column.class).to.equal('data');
+			expect(column.canSort).to.equal(true);
+			expect(column.canResize).to.equal(true);
+			expect(column.canMove).to.equal(true);
+			expect(column.canHighlight).to.equal(true);
+			expect(column.canFocus).to.equal(true);
+			expect(column.canFilter).to.equal(true);
+			expect(column.canEdit).to.equal(true);
+			expect(column.$label).to.equal(null);
+			expect(column.$value).to.equal(null);
 		});
 	});
 
 	describe('get commandManager', function () {
 		it('should return a commandManager', () => {
-			let commandManager = cellEditor.commandManager;
-			expect(commandManager).to.be.an.instanceOf(CommandManager);
+			let cm = cellEditor.commandManager;
+			expect(cm).to.equal(commandManager);
 		});
 	});
 
