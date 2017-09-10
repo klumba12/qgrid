@@ -4,30 +4,42 @@ import {modelFactory} from '../test/model.factory';
 import {CommandManager} from '../command/command.manager';
 
 describe('EditRowView', function () {
-	let commandManager = new CommandManager();
-	let model = modelFactory();
-	let table = {
+	const commandManager = new CommandManager();
+	const model = modelFactory();
+	const table = {
 		view: {
 			focus: () => true
 		}
 	};
-	let editRowView = new EditRowView(model, table, commandManager);
+	const editRowView = new EditRowView(model, table, commandManager);
 
 	describe('get commands', function () {
+		const enter = {
+			'enter': Command
+		};
+		const commit = {
+			'commit': Command
+		};
+		const cancel = {
+			'cancel': Command
+		};
+		const reset = {
+			'reset': Command
+		};
 		it('should return enter, commit, cancel, reset commands', () => {
 			let map = editRowView.commands;
-			expect(map.get('enter')).to.be.an.instanceOf(Command);
-			expect(map.get('commit')).to.be.an.instanceOf(Command);
-			expect(map.get('cancel')).to.be.an.instanceOf(Command);
-			expect(map.get('reset')).to.be.an.instanceOf(Command);
+			expect(JSON.stringify(map.get('enter'))).to.equal(JSON.stringify(enter));
+			expect(JSON.stringify(map.get('commit'))).to.equal(JSON.stringify(commit));
+			expect(JSON.stringify(map.get('cancel'))).to.equal(JSON.stringify(cancel));
+			expect(JSON.stringify(map.get('reset'))).to.equal(JSON.stringify(reset));
 		});
 	});
 
 	describe('contextFactory', function () {
 		it('', () => {
-			let enter = editRowView.commands.get('enter');
+			const enter = editRowView.commands.get('enter');
 			enter.execute('row');
-			let context = editRowView.contextFactory('row');
+			const context = editRowView.contextFactory('row');
 			expect(context['row']).to.equals('row');
 			expect(context['unit']).to.equals('row');
 		});
@@ -35,8 +47,8 @@ describe('EditRowView', function () {
 
 	describe('shortcutFactory', function () {
 		it('should return shortcut', () => {
-			let factory = editRowView.shortcutFactory('commit');
-			let result = factory();
+			const factory = editRowView.shortcutFactory('commit');
+			const result = factory();
 			expect(result).to.equals('ctrl+s');
 		});
 	});
