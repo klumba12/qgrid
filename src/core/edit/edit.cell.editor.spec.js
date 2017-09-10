@@ -12,12 +12,12 @@ describe('CellEditor', function () {
 		}
 	});
 
-	let column = new ColumnModel();
+	const column = new ColumnModel();
 	column.title = 'testTitle';
-	let commandManager = new CommandManager();
+	const commandManager = new CommandManager();
 	commandManager.label = row => row;
 
-	let cell = {
+	const cell = {
 		value: 'value',
 		label: 'label',
 		row: 'row',
@@ -25,8 +25,8 @@ describe('CellEditor', function () {
 		commandManager: commandManager
 	};
 
-	let cellEditor = new CellEditor(cell);
-	let options = {
+	const cellEditor = new CellEditor(cell);
+	const options = {
 		trigger: 'click',
 		label: null,
 		value: identity,
@@ -37,7 +37,7 @@ describe('CellEditor', function () {
 
 	describe('fetchFactory', function () {
 		it('should return a new instance of Fetch if there is no options.fetch', () => {
-			let fetch = cellEditor.fetchFactory();
+			const fetch = cellEditor.fetchFactory();
 			expect(fetch.select).to.equals('value');
 		});
 	});
@@ -45,7 +45,7 @@ describe('CellEditor', function () {
 	describe('fetchFactory', function () {
 		it('should return a new instance of Fetch if there is options.fetch', () => {
 			cellEditor.cell.column.editorOptions.fetch = 'fetch';
-			let fetch = cellEditor.fetchFactory();
+			const fetch = cellEditor.fetchFactory();
 			expect(fetch.select).to.equals('fetch');
 		});
 	});
@@ -59,21 +59,21 @@ describe('CellEditor', function () {
 
 	describe('get title', function () {
 		it('should return a title', () => {
-			let title = cellEditor.title;
+			const title = cellEditor.title;
 			expect(title).to.equals('testTitle');
 		});
 	});
 
 	describe('get options', function () {
 		it('should return an options', () => {
-			let cellOptions = cellEditor.options;
+			const cellOptions = cellEditor.options;
 			expect(JSON.stringify(cellOptions)).to.equals(JSON.stringify(options));
 		});
 	});
 
 	describe('get column', function () {
 		it('should return a column', () => {
-			let column = cellEditor.column;
+			const column = cellEditor.column;
 			expect(column.pin).to.equal(null);
 			expect(column.path).to.equal(null);
 			expect(column.title).to.equal('testTitle');
@@ -104,14 +104,14 @@ describe('CellEditor', function () {
 
 	describe('get commandManager', function () {
 		it('should return a commandManager', () => {
-			let cm = cellEditor.commandManager;
+			const cm = cellEditor.commandManager;
 			expect(cm).to.equal(commandManager);
 		});
 	});
 
 	describe('static get empty', function () {
 		it('should return a new instance of CellEditorCore', () => {
-			let result = CellEditor.empty;
+			const result = CellEditor.empty;
 			expect(result.constructor.name).to.equal('CellEditorCore');
 		});
 	});
