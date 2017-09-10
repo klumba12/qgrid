@@ -6,18 +6,19 @@ import {ColumnModel} from '../column-type/column.model';
 import {identity} from '../utility';
 
 describe('EditCellView', function () {
-	let column = new ColumnModel();
+	const column = new ColumnModel();
 	column.editor = 'reference';
 	column.editorOptions.fetch = value => value;
-	let commandManager = new CommandManager();
-	let model = modelFactory();
+	const commandManager = new CommandManager();
+	const model = modelFactory();
 
-	let table = {
+	const table = {
 		view: {
 			focus: () => true
 		}
 	};
-	let cell = {
+
+	const cell = {
 		value: 'value',
 		label: 'label',
 		row: 'row',
@@ -28,7 +29,7 @@ describe('EditCellView', function () {
 		mode: () => null
 	};
 
-	let options = {
+	const options = {
 		trigger: 'click',
 		label: null,
 		value: identity,
@@ -37,22 +38,34 @@ describe('EditCellView', function () {
 		actions: []
 	};
 
-	let editCellView = new EditCellView(model, table, commandManager);
+	const editCellView = new EditCellView(model, table, commandManager);
 
 	describe('get commands', function () {
+		const enter = {
+			'enter': Command
+		};
+		const commit = {
+			'commit': Command
+		};
+		const cancel = {
+			'cancel': Command
+		};
+		const reset = {
+			'reset': Command
+		};
 		it('should return enter, commit, cancel, reset commands', () => {
-			let map = editCellView.commands;
-			expect(map.get('enter')).to.be.an.instanceOf(Command);
-			expect(map.get('commit')).to.be.an.instanceOf(Command);
-			expect(map.get('cancel')).to.be.an.instanceOf(Command);
-			expect(map.get('reset')).to.be.an.instanceOf(Command);
+			const map = editCellView.commands;
+			expect(JSON.stringify(map.get('enter'))).to.equal(JSON.stringify(enter));
+			expect(JSON.stringify(map.get('commit'))).to.equal(JSON.stringify(commit));
+			expect(JSON.stringify(map.get('cancel'))).to.equal(JSON.stringify(cancel));
+			expect(JSON.stringify(map.get('reset'))).to.equal(JSON.stringify(reset));
 		});
 	});
 
 	describe('contextFactory', function () {
 		it('should return object if passed 1 argument', () => {
 			let context = editCellView.contextFactory(cell);
-			expect(context.column).to.be.an.instanceOf(ColumnModel);
+			expect(context.column.editor).to.equals('reference');
 			expect(context.row).to.equals('row');
 			expect(context.columnIndex).to.equals(1);
 			expect(context.rowIndex).to.equals(2);
@@ -67,7 +80,7 @@ describe('EditCellView', function () {
 		});
 		it('should return object if passed 4 arguments argument', () => {
 			let context = editCellView.contextFactory(cell, 'someValue', 'someLabel', 'tag');
-			expect(context.column).to.be.an.instanceOf(ColumnModel);
+			expect(context.column.editor).to.equals('reference');
 			expect(context.row).to.equals('row');
 			expect(context.columnIndex).to.equals(1);
 			expect(context.rowIndex).to.equals(2);
@@ -84,7 +97,7 @@ describe('EditCellView', function () {
 
 	describe('get fetch', function () {
 		it('returns noop function', () => {
-			let result = editCellView.fetch;
+			const result = editCellView.fetch;
 			expect(result.name).to.equals('noop');
 		});
 	});
@@ -92,7 +105,7 @@ describe('EditCellView', function () {
 	describe('get/set value', function () {
 		it('set and get `value` ', () => {
 			editCellView.value = 'value';
-			let result = editCellView.value;
+			const result = editCellView.value;
 			expect(result).to.equals('value');
 		});
 	});
@@ -100,17 +113,41 @@ describe('EditCellView', function () {
 	describe('get/set label', function () {
 		it('set and get `label` ', () => {
 			editCellView.label = 'label';
-			let result = editCellView.label;
+			const result = editCellView.label;
 			expect(result).to.equals('label');
 		});
 	});
 
 	describe('get column', function () {
 		it('get column', () => {
-			let enter = editCellView.commands.get('enter');
+			const enter = editCellView.commands.get('enter');
 			enter.execute(cell);
-			let result = editCellView.column;
-			expect(result).to.be.an.instanceOf(ColumnModel);
+			const result = editCellView.column;
+			expect(result.pin).to.equal(null);
+			expect(result.path).to.equal(null);
+			expect(result.title).to.equal(null);
+			expect(result.value).to.equal(null);
+			expect(result.width).to.equal(null);
+			expect(result.origin).to.equal('specific');
+			expect(result.type).to.equal('text');
+			expect(result.minWidth).to.equal(20);
+			expect(result.maxWidth).to.equal(null);
+			expect(result.label).to.equal(null);
+			expect(result.key).to.equal(null);
+			expect(result.isVisible).to.equal(true);
+			expect(result.index).to.equal(-1);
+			expect(JSON.stringify(result.editorOptions)).to.equal(JSON.stringify(options));
+			expect(result.editor).to.equal('reference');
+			expect(result.class).to.equal('data');
+			expect(result.canSort).to.equal(true);
+			expect(result.canResize).to.equal(true);
+			expect(result.canMove).to.equal(true);
+			expect(result.canHighlight).to.equal(true);
+			expect(result.canFocus).to.equal(true);
+			expect(result.canFilter).to.equal(true);
+			expect(result.canEdit).to.equal(true);
+			expect(result.$label).to.equal(null);
+			expect(result.$value).to.equal(null);
 		});
 	});
 
@@ -119,39 +156,39 @@ describe('EditCellView', function () {
 			model.edit({
 				mode: 'cell'
 			});
-			let result = editCellView.canEdit(cell);
+			const result = editCellView.canEdit(cell);
 			expect(result).to.equals(true);
 		});
 		it('should return false if model.edit().mode !== cell', () => {
 			model.edit({
 				mode: null
 			});
-			let result = editCellView.canEdit(cell);
+			const result = editCellView.canEdit(cell);
 			expect(result).to.equals(false);
 		});
 		it('should return false if no argument passed in', () => {
-			let result = editCellView.canEdit(null);
+			const result = editCellView.canEdit(null);
 			expect(result).to.equals(false);
 		});
 	});
 
 	describe('get options', function () {
 		it('get options', () => {
-			let result = editCellView.options;
+			const result = editCellView.options;
 			expect(JSON.stringify(result)).to.equals(JSON.stringify(options));
 		});
 	});
 
 	describe('shortcutFactory', function () {
 		it('should return shortcut based on column.editor or column.type values', () => {
-			let factory = editCellView.shortcutFactory('commit');
-			let result = factory();
+			const factory = editCellView.shortcutFactory('commit');
+			const result = factory();
 			expect(result).to.equals('ctrl+s');
 		});
 		it('should return optional shortcut', () => {
 			delete column.editor;
-			let factory = editCellView.shortcutFactory('commit');
-			let result = factory();
+			const factory = editCellView.shortcutFactory('commit');
+			const result = factory();
 			expect(result).to.equals('tab|shift+tab|enter');
 		});
 	});
