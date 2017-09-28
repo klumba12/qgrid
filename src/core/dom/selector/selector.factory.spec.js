@@ -37,15 +37,13 @@ describe('SelectorFactory', () => {
 	const selectorMark = new SelectorMark(model, markup, name);
 	const bag = new Bag();
 	const selectorFactory = new SelectorFactory(bag, selectorMark);
-	const foo = (selector, indexA, indexB) => {
+	const foo = (selector) => {
 		return {
-			selector: selector,
-			indexA: indexA,
-			indexB: indexB
+			selector
 		};
 	};
-	describe('create', () => {
-		it('filtering selectors', () => {
+	describe('selectorFactory', () => {
+		it('creates new instance of Selector from filtered markup elements', () => {
 			const selectorMediator = selectorFactory.create();
 			const build = selectorMediator.buildSelectors;
 			const invokes = build({row: 2, column: 2});
@@ -60,6 +58,11 @@ describe('SelectorFactory', () => {
 			expect(result1.selector.factory.columnRange.end).to.equal(2);
 			expect(result1.selector.factory.rowRange.start).to.equal(0);
 			expect(result1.selector.factory.rowRange.end).to.equal(3);
+		});
+		it('creates new instance of Selector from filtered markup elements', () => {
+			const selectorMediator = selectorFactory.create();
+			const build = selectorMediator.buildSelectors;
+			const invokes = build({row: 2, column: 2});
 			const f2 = invokes[1];
 			const func2 = f2.invoke;
 			const result2 = func2(foo);
